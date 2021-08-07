@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AirCamp</title>
+
+        <!--bootstrap versons vary, v3.3.7 is less buggy-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+        <!-- Socket.io -->
+        <script src="/socket.io/socket.io.js"></script>
+
+        <!-- Main CSS -->
+        <link rel="stylesheet" href="/stylesheets/airchat.css">
+
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
+
+        <!-- Make site responsive on mobile/tablet -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    </head>
+    <body id="chatBody">
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle Navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="/">AirCamp</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+              <ul class="nav navbar-nav">
+                <li class="<%= typeof page !== "undefined" && page === "campgrounds" ? "active" : "" %>"><a href="/campgrounds">Home</a></li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <% if (!currentUser) { %>
+                  <li class="<%= typeof page !== "undefined" && page === "login" ? "active" : "" %>"><a href="/login">Login</a></li>
+                  <li class="<%= typeof page !== "undefined" && page === "register" ? "active" : "" %>"><a href="/register">Sign Up</a></li>
+                <% } else { %>
+
+                  <li class="dropdown top-level" id="menu">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                      Signed in as <%= currentUser.userDisplay %>
+                      <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a href="/users/<%= currentUser._id %>">View Profile</a></li>
+                      <div class="dropdown-divider"></div>
+                      <li><a href="/users/<%= currentUser._id %>/edit">Edit Profile</a></li>
+                      <li><a href="/change">Change Password</a></li>
+                    </ul>
+                  </li>
+
+                  <li><a href="/logout">Logout</a></li>
+                <% } %>
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+        <div class="container">
+            <% if(error && error.length > 0){ %>
+                <div class="alert alert-danger" role="alert">
+                    <%= error %>
+                </div>
+            <% } %>
+            <% if(success && success.length > 0){ %>
+                <div class="alert alert-success" role="alert">
+                    <%= success %>
+                </div>
+            <% } %>
+        </div>
+
+        <div class="container">
