@@ -1,0 +1,350 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f7f7f7;
+    padding-top: 80px;
+}
+
+.btn-transparent {
+    background: transparent;
+    color: #ace388;
+    -webkit-transition: background .2s ease-in-out, border .2s ease-in-out;
+    -moz-transition: background .2s ease-in-out, border .2s ease-in-out;
+    -o-transition: background .2s ease-in-out, border .2s ease-in-out;
+    transition: background .2s ease-in-out, border .2s ease-in-out;
+    border: 2px solid #ace388;
+}
+
+.btn-transparent:hover {
+    color: white;
+    background-color: rgba(255,255,255,0.2);
+}
+
+.jumbotron {
+    height: 400px;
+    background-image: url(https://tinyurl.com/yanavken);
+    background-repeat: no-repeat;
+    background-position: 0% 75%;
+    background-size: 1175px;
+}
+
+.post-camp {
+    margin-top: 1%;
+    animation: fadein-camp 7s;
+}
+
+@keyframes fadein-camp {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+    animation-timing-function: ease-in;
+  }
+  100% {
+    opacity: 1
+  }
+}
+
+.user-container-right {
+/*    border: 2px solid rgba(0, 0, 0, 0.03);
+    border-radius: 6px;*/
+    margin-left: 12px;
+    padding: 0px 14px;
+}
+
+.user-bio {
+    border: 2px solid rgba(0, 0, 0, 0.05);
+    border-radius: 6px;
+    margin-left: 12px;
+    margin-bottom: 25px;
+}
+
+.user-bio h1 {
+    text-align: center;
+}
+
+.user-email {
+    margin-top: 10px;
+}
+
+.alert {
+    margin-right: -0.5%;
+    margin-left: 0.5%;
+}
+
+.container {
+    padding: 0px 5px;
+}
+
+.vertical-menu a {
+    color: black;
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.vertical-menu li.not-active:hover {
+    background-color: #ccc;
+}
+
+.indiv-comment {
+    margin: 0%;
+    margin-left: 0;
+}
+
+.name-avatar-container {
+    float: left;
+    width 25%;
+    margin-top: 1%;
+    display: inline;
+}
+
+/*.well-inner {
+    padding-top: 30px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+*/
+.container-text-new {
+    margin-right: 2%;
+    margin-left: 2%;
+    margin: 2%;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 12px;
+    padding-bottom: 4px;
+}
+
+.container-text-edit {
+    width: 275%;
+}
+
+.comments-user-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.below-comments {
+    margin-top: -1%;
+    margin-left: 12%;
+    height: 0%;
+    float: left;
+    display: inline;
+}
+
+.time-stamp {
+    float: right;
+    display: inline;
+    margin-top: -1%;
+    margin-right: 2%;
+    width: 20%;
+    text-align: right;
+}
+
+/*Contains the listing on the right of the campground show page*/
+.listing-container {
+    border: 2px solid rgba(0, 0, 0, 0.05);
+    border-radius: 6px;
+    padding: 25px;
+}
+
+/*Campground thumbnails on index page*/
+.thumbnail {
+    padding: 0;
+    border-radius: 6px;
+    border-style: none;
+    background: transparent;
+}
+
+.thumbnail img {
+    width: 100%;
+    border-radius: 6px;
+}
+
+/*Thumbnail on the user page*/
+.thumbnail .caption {
+    padding: 9px;
+    text-align: center;
+    overflow-wrap: break-word;
+}
+
+/*overflow-wrap prevents strange things from happening with overflow*/
+.thumbnail .caption-index {
+    padding: 9px;
+    text-align: left;
+    overflow-wrap: break-word;
+}
+
+/*Thumbnail on the show page*/
+.thumbnail-show {
+    margin-bottom: 25px;
+}
+
+/*Campground listing on index page*/
+.caption-index h4 {
+    margin-top: -12px;
+    margin-bottom: 5px;
+}
+
+/*Campground price on the index page*/
+.caption-index p {
+    color: #b1040e;
+}
+
+.img-responsive {
+    border-radius: 6px;
+}
+
+/*The top left title on the campgrounds show page*/
+.lead {
+    overflow-wrap: break-word;
+}
+
+/*hr on the campground listing page in the right container*/
+.hr-list {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+/*Campground price on the show page*/
+.pull-right {
+    margin-top: 0px;
+    color: #b1040e;
+}
+
+.delete-form {
+    display: inline;
+}
+
+.user-comment-space {
+    background-color: white;
+    border-radius: 25px;
+    padding: 10px 20px;
+    margin-right: 5px;
+    margin-left: 0%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    width: 90%;
+    float: right;
+    display: inline;
+    overflow-wrap: break-word;
+}
+
+/*Campground location on index page*/
+#index-list-location {
+    color: #7952b3;
+    text-transform: uppercase;
+    margin-bottom: -15px;
+}
+
+#hr-comment-show {
+    margin-top: 15px;
+}
+
+#text-area-comment {
+    margin-top: 10px;
+}
+
+#welcome {
+    color: white;
+    text-shadow: black 0.1em 0.1em 0.2em;
+    animation: fadein-welcome 3s;
+}
+
+@keyframes fadein-welcome {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+    animation-timing-function: ease-in;
+  }
+  100% {
+    opacity: 1
+  }
+}
+
+#tag-line {
+    color: white;
+    text-shadow: black 0.1em 0.1em 0.2em;
+    animation: fadein-tag 5s;
+}
+
+@keyframes fadein-tag {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+    animation-timing-function: ease-in;
+  }
+  100% {
+    opacity: 1
+  }
+}
+
+/*fix inline-block spacing*/
+#login-forgot-p {
+    font-size: 0;
+}
+
+#login-forgot-p span {
+    width: 50%;
+    display: inline-block;
+}
+
+#login-forgot-span {
+    text-align: right;
+}
+
+span a {
+    font-size: 16px;
+}
+
+/*dropdown menu for mobile*/
+/*#nav-mobile {
+    display: block;
+    height: auto;
+}*/
+
+/*dropdown menu top*/
+#menu .top-level {
+    float: left;
+    position: relative;
+    width: auto;
+    display: block;
+}
+
+/*dropdown menu*/
+#menu .dropdown-menu {
+    float: none;
+    position: auto;
+    width: 100%;
+}
+
+/*Google Maps*/
+#map {
+    height: 400px;
+    width: 100%;
+}
+
+/*user's campgrounds*/
+#user-campgrounds {
+    text-align: center;
+    overflow-wrap: break-word;
+}
+
+/*Campground listing title on the show page*/
+#campground-name {
+    margin-top: 20px;
+}
+
+/*comments divider*/
+/* Gradient transparent - color - transparent */
+hr.style-two {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
+}

@@ -1,0 +1,133 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f7f7f7;
+    padding-top: 80px;
+}
+
+hr.style-two {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0));
+}
+
+h1 {
+    text-align: center;
+    color: #7952b3;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 18px;
+    padding: 10px 20px;
+    color: #337ab7;
+}
+
+#online {
+    max-width: 800px;
+    background-color: white;
+    margin: 30px auto;
+    border: 1px solid #ddd;
+    box-shadow: 1px 3px 5px rgba(0,0,0,0.05);
+    border-radius: 2px;
+    height: 400px;
+    float: left;
+    z-index: 1;
+}
+
+#userWindow {
+    height: 200px;
+    overflow: auto;
+}
+
+#airchat {
+    max-width: 800px;
+    margin: 30px auto;
+    border: 1px solid #ddd;
+    box-shadow: 1px 3px 5px rgba(0,0,0,0.05);
+    border-radius: 2px;
+    z-index: 0;
+}
+
+#chatWindow {
+    height: 400px;
+    overflow: auto;
+    background: white;
+}
+
+#output p {
+    padding: 14px 0px;
+    margin: 0 20px;
+    border-bottom: 1px solid #e9e9e9;
+    color: #555;
+}
+
+#feedback p {
+    color: #aaa;
+    padding: 14px 0px;
+    margin: 0 20px;
+}
+
+#output strong {
+    color: #337ab7;
+}
+
+/*.chat-label {
+    box-sizing: border-box;
+    display: block;
+    padding: 10px 20px;
+}*/
+
+.user {
+    color: #7952b3;
+    background-color: white;
+    width: auto;
+    text-align: center;
+    border-style: none;
+    margin: 2px 2px 2px 2px;
+}
+
+.chat-input {
+    padding: 10px 20px;
+    box-sizing: border-box;
+    background: #eee;
+    border: 0;
+    display: block;
+    width: 100%;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    font-size: 16px;
+}
+
+.chat-button {
+    background: #337ab7;
+    color: #fff;
+    font-size: 18px;
+    border: 0;
+    padding: 12px 0;
+    width: 100%;
+    border-radius: 0 0 2px 2px;
+    display: none;
+}
+
+#handle {
+    display: none;
+}
+
+/*====================*/
+/*NAVBAR CSS BELOW*/
+/*====================*/
+
+/*dropdown menu top*/
+#menu .top-level {
+    float: left;
+    position: relative;
+    width: auto;
+    display: block;
+}
+
+/*dropdown menu*/
+#menu .dropdown-menu {
+    float: none;
+    position: auto;
+    width: 100%;
+}
