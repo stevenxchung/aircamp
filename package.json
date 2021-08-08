@@ -1,7 +1,7 @@
 {
-  "name": "yelpcamp",
+  "name": "AirCamp",
   "version": "1.0.0",
-  "description": "The deployed YelpCamp application has migrated to another repository due to the increased volume of files in the [bootcamp repository](https://github.com/stevenxchung/Web-Developer-Bootcamp).  This YelpCamp application deployment series will be based on [YelpCamp v12 (deployed)](https://github.com/stevenxchung/Web-Developer-Bootcamp/tree/master/Section%2038%20-%20Deploying/v12Deployed).  For more details and documentation please visit the linked YelpCamp v12 (deployed) repository mentioned previously. This website uses Heroku and mLab cloud database for hosting, you can see the latest stable build of the YelpCamp application [here](https://polar-tundra-99938.herokuapp.com/).",
+  "description": "AirCamp is a prototype app that is essentially \"Airbnb for campers\" where users can book or rent out campgrounds anywhere in the world.",
   "main": "app.js",
   "dependencies": {
     "async": "^2.6.0",
@@ -15,21 +15,21 @@
     "method": "^2.0.0",
     "method-override": "^2.3.10",
     "moment": "^2.22.1",
-    "mongodb": "^3.0.7",
-    "mongoose": "^5.0.15",
+    "mongodb": "^3.6.11",
+    "mongoose": "^5.13.5",
     "mongoose-unique-validator": "^2.0.0",
     "node-geocoder": "^3.22.0",
-    "nodemailer": "^4.6.4",
+    "nodemailer": "^6.6.3",
     "override": "0.0.1",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^5.0.0",
-    "socket.io": "^2.1.0"
+    "socket.io": "^2.4.1"
   },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "start": "start http://localhost:8080 && node app.js"
   },
   "author": "Steven Chung",
   "license": "ISC"
