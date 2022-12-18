@@ -120,8 +120,10 @@ io.sockets.on("connection", function(socket) {
   }
 });
 
+var ip = process.env.IP || 'localhost'
+var port = process.env.PORT || 8080
+
 // Standard server listen request
-server.listen(process.env.PORT, process.env.IP, function() {
-   console.log("AirCamp is online!");
-   console.log("PORT: " + process.env.PORT + " / " + "IP: " + process.env.IP);
+server.listen(port, ip, function() {
+   console.log(`AirCamp is online at at ${ip}:${port}!`);
 });
