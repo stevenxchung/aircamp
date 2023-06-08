@@ -63,7 +63,6 @@ const Home: NextPage<HomeProps> = ({ images }) => {
           <div className="z-10">
             <Link href={`/campgrounds`} className="hover:opacity-75">
               <div className="flex animate-fade-in-medium flex-row text-center text-4xl">
-                Welcome to&nbsp;
                 <Typewriter
                   onInit={(typewriter) => {
                     typewriter
@@ -82,6 +81,7 @@ const Home: NextPage<HomeProps> = ({ images }) => {
                     strings: landingWords,
                     autoStart: true,
                     loop: true,
+                    cursor: ".",
                   }}
                 />
               </div>
