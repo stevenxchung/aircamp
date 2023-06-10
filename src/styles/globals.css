@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans&display=swap");
+@import "bootstrap/dist/css/bootstrap.min.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,4 +7,5 @@
 body {
   font-family: "DM Sans", sans-serif;
   color: white;
+  background-color: black;
 }
