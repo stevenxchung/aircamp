@@ -16,7 +16,10 @@ const getRandomDateRange = () => {
   const nDaysLater = new Date(
     currentDate.getTime() + randomNumber * 24 * 60 * 60 * 1000
   );
-  const options = { month: "short", day: "numeric" };
+  const options: Intl.DateTimeFormatOptions = {
+    month: "short",
+    day: "numeric",
+  };
   const formattedStartDate = currentDate.toLocaleDateString("en-US", options);
   const formattedEndDate = nDaysLater.toLocaleDateString("en-US", options);
 
