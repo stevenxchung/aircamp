@@ -3,7 +3,6 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { api } from "~/utils/api";
 
 import Typewriter from "typewriter-effect";
 
@@ -15,7 +14,6 @@ interface HomeProps {
 }
 
 const Home: NextPage<HomeProps> = ({ images }) => {
-  const hello = api.example.hello.useQuery({ text: "from tRPC" });
   const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
 
   useEffect(() => {
@@ -61,8 +59,11 @@ const Home: NextPage<HomeProps> = ({ images }) => {
             />
           ))}
           <div className="z-10">
-            <Link href={`/campgrounds`} className="hover:opacity-75">
-              <div className="flex animate-fade-in-medium flex-row text-center text-4xl">
+            <Link
+              href={`/campgrounds`}
+              className="no-underline  hover:opacity-75"
+            >
+              <div className="flex animate-fade-in-medium flex-row text-center text-4xl text-white">
                 <Typewriter
                   onInit={(typewriter) => {
                     typewriter
