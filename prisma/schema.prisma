@@ -77,7 +77,8 @@ model AirCampUser {
 model AirCampCampground {
   id          String           @id @default(cuid())
   ownerId     String
-  owner       AirCampUser      @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+  // Optional for now
+  owner       AirCampUser?     @relation(fields: [ownerId], references: [id], onDelete: Cascade)
   // Legacy fields
   name        String
   price       String
