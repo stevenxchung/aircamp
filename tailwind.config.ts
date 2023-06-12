@@ -9,6 +9,12 @@ export default {
         "fade-in-medium": "fade-in 2s ease-in-out",
         "fade-in-fast": "fade-in 1s ease-in-out",
       },
+      backgroundImage: {
+        jumbotron: "url('https://tinyurl.com/yanavken')",
+      },
+      transitionDelay: {
+        "2000": "3000ms",
+      },
       transitionDuration: {
         "3000": "3000ms",
       },

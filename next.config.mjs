@@ -25,5 +25,12 @@ const config = {
     ignoreDuringBuilds: true,
   },
   swcMinify: true,
+  images: {
+    domains: [
+      "images.unsplash.com",
+      "c1.staticflickr.com",
+      "media.istockphoto.com",
+    ],
+  },
 };
 export default config;
