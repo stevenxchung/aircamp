@@ -52,7 +52,7 @@ const Campgrounds: NextPage = () => {
       <CustomNavbar />
       <main className="flex flex-col items-center">
         <Container className="my-10 px-4">
-          <div className="h-96 rounded-md bg-black bg-jumbotron bg-cover bg-center object-cover py-4 pl-8 text-white">
+          <div className="h-96 rounded-lg bg-black bg-jumbotron bg-cover bg-center object-cover py-4 pl-8 text-white">
             <h1 className="animate-fade-in-medium delay-1000">
               Experience nature
             </h1>
@@ -72,7 +72,7 @@ const Campgrounds: NextPage = () => {
                     key={i}
                     src={campground.image}
                     alt={campground.name}
-                    className="h-52 rounded-md object-cover"
+                    className="h-52 rounded-lg object-cover"
                     width={500}
                     height={500}
                   />
