@@ -70,7 +70,7 @@ const Campgrounds: NextPage = () => {
                 <Container key={i}>
                   <Image
                     key={i}
-                    src={campground.image}
+                    src={`/campgrounds/0${i + 1}.jpg`}
                     alt={campground.name}
                     className="h-52 rounded-lg object-cover"
                     width={500}
