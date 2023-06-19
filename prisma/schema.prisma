@@ -59,30 +59,40 @@ model AirCampSession {
 model AirCampUser {
   id                String              @id @default(cuid())
   name              String?
-  email             String?             @unique
+  email             String?
   emailVerified     DateTime?
   image             String?
   accounts          AirCampAccount[]
   sessions          AirCampSession[]
   // Legacy fields
-  username          String              @unique
+  username          String
   firstName         String
   lastName          String
   avatar            String
   bio               String
   AirCampCampground AirCampCampground[]
   AirCampComment    AirCampComment[]
+
+  @@unique([email, username])
+  @@index([username])
+}
+
+model AirCampVerificationToken {
+  identifier String
+  token      String
+  expires    DateTime
+
+  @@unique([identifier, token])
 }
 
 model AirCampCampground {
   id          String           @id @default(cuid())
-  ownerId     String
+  userId      String
   // Optional for now
-  owner       AirCampUser?     @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+  owner       AirCampUser?     @relation(fields: [userId], references: [id], onDelete: Cascade)
   // Legacy fields
   name        String
   price       String
-  image       String
   description String
   location    String
   lat         Float
@@ -90,7 +100,7 @@ model AirCampCampground {
   createdAt   DateTime         @default(now())
   comment     AirCampComment[]
 
-  @@index([ownerId])
+  @@index([userId])
 }
 
 model AirCampComment {
@@ -105,12 +115,4 @@ model AirCampComment {
 
   @@index([campgroundId])
   @@index([userId])
-}
-
-model AirCampVerificationToken {
-  identifier String
-  token      String   @unique
-  expires    DateTime
-
-  @@unique([identifier, token])
 }
