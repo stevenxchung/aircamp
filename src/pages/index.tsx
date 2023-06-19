@@ -24,7 +24,7 @@ const Home: NextPage<HomeProps> = ({ images }) => {
     return () => {
       clearInterval(interval);
     };
-  }, [images.length]);
+  });
 
   const landingWords = [
     "AirCamp",
@@ -49,7 +49,7 @@ const Home: NextPage<HomeProps> = ({ images }) => {
           {images.map((imageUrl, index) => (
             <Image
               key={index}
-              src={`/assets/${imageUrl}` ?? ""}
+              src={`/landing/${imageUrl}` ?? ""}
               alt="Landing page background"
               className={`absolute h-full w-full object-cover transition-opacity duration-3000 ${
                 index === currentImageIndex ? "opacity-100" : "opacity-0"
@@ -95,7 +95,7 @@ const Home: NextPage<HomeProps> = ({ images }) => {
 };
 
 export const getStaticProps: GetStaticProps<HomeProps> = () => {
-  const imageDirectory = path.join(process.cwd(), "public", "assets");
+  const imageDirectory = path.join(process.cwd(), "public", "landing");
   const images = fs.readdirSync(imageDirectory);
 
   return {

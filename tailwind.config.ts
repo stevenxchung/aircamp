@@ -10,7 +10,7 @@ export default {
         "fade-in-fast": "fade-in 1s ease-in-out",
       },
       backgroundImage: {
-        jumbotron: "url('https://tinyurl.com/yanavken')",
+        jumbotron: "url('/campgrounds/jumbotron.jpg')",
       },
       transitionDelay: {
         "2000": "3000ms",
