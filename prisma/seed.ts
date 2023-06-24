@@ -3,7 +3,7 @@ import { prisma } from "../src/server/db";
 const main = async () => {
   const mockCampgrounds = [
     {
-      userId: "testUser123",
+      airCampUserId: "testUser123",
       name: "Cloud's Rest",
       price: "$666",
       description:
@@ -13,7 +13,7 @@ const main = async () => {
       lng: -119.5383,
     },
     {
-      userId: "testUser123",
+      airCampUserId: "testUser123",
       name: "Yellow Mountain",
       price: "$777",
       description:
@@ -23,7 +23,7 @@ const main = async () => {
       lng: -118.3387,
     },
     {
-      userId: "testUser123",
+      airCampUserId: "testUser123",
       name: "Shangri-La",
       price: "$888",
       description:
@@ -33,7 +33,7 @@ const main = async () => {
       lng: 84.0,
     },
     {
-      userId: "testUser123",
+      airCampUserId: "testUser123",
       name: "Nusa Penida",
       price: "$999",
       description:
