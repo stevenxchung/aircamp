@@ -11,7 +11,7 @@ interface CustomLinkProps {
   label: string;
   path?: string;
   query?: string;
-  event?: unknown;
+  event?: () => void;
 }
 
 const CustomLink: React.FC<CustomLinkProps> = ({
@@ -26,7 +26,6 @@ const CustomLink: React.FC<CustomLinkProps> = ({
 
     // Replace the current history entry with the new page
     window.history.replaceState({}, "", path);
-    event();
   };
 
   return event ? (
