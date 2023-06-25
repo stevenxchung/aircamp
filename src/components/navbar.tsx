@@ -10,8 +10,8 @@ import InfoModal from "~/components/info-modal";
 interface CustomLinkProps {
   label: string;
   path?: string;
-  query?: any;
-  event?: any;
+  query?: string;
+  event?: unknown;
 }
 
 const CustomLink: React.FC<CustomLinkProps> = ({
@@ -74,7 +74,7 @@ const CustomNavbar = () => {
                   <CustomLink
                     label="Profile"
                     path={`/profile/${userId}}`}
-                    query={user}
+                    query={JSON.stringify(user)}
                   />
                   <CustomLink label="Logout" event={() => void signOut()} />
                 </>
