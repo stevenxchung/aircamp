@@ -1,6 +1,8 @@
 import Link from "next/link";
 import ReactModal from "react-modal";
 
+ReactModal.setAppElement("#__next");
+
 interface InfoModalProps {
   isOpen: boolean;
   closeModal: () => void;
