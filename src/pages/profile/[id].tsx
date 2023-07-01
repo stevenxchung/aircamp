@@ -27,7 +27,7 @@ const Profile: NextPage = () => {
   return (
     <>
       <Head>
-        <title>`${name}&apos;s` Profile</title>
+        <title>{name}&apos;s Profile</title>
       </Head>
       <CustomNavbar />
       <main>
