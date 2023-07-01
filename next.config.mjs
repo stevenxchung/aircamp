@@ -26,11 +26,7 @@ const config = {
   },
   swcMinify: true,
   images: {
-    domains: [
-      "images.unsplash.com",
-      "c1.staticflickr.com",
-      "media.istockphoto.com",
-    ],
+    domains: ["cdn.discordapp.com", "avatars.githubusercontent.com"],
   },
 };
 export default config;

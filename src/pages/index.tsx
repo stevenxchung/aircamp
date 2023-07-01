@@ -61,7 +61,7 @@ const Home: NextPage<HomeProps> = ({ images }) => {
           <div className="z-10">
             <Link
               href={`/campgrounds`}
-              className="no-underline  hover:opacity-75"
+              className="no-underline hover:opacity-75"
             >
               <div className="flex animate-fade-in-medium flex-row text-center text-4xl text-white">
                 <Typewriter
