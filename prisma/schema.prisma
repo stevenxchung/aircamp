@@ -85,8 +85,8 @@ model AirCampUser {
   username          String
   firstName         String
   lastName          String
-  avatar            String
-  bio               String
+  avatar            String?
+  bio               String?
   airCampCampground AirCampCampground[]
   airCampComment    AirCampComment[]
 
@@ -99,17 +99,19 @@ model AirCampCampground {
   id            String           @id @default(cuid())
   airCampUserId String
   // Optional for now
-  owner         AirCampUser?     @relation(fields: [airCampUserId], references: [id], onDelete: Cascade)
+  owner         AirCampUser?     @relation(fields: [airCampUserId], references: [airCampUserId], onDelete: Cascade)
+  summary       String           @db.VarChar(999)
+  description   String           @db.VarChar(999)
   // Legacy fields
   name          String
   price         String
-  description   String
   location      String
   lat           Float
   lng           Float
   createdAt     DateTime         @default(now())
   comment       AirCampComment[]
 
+  @@unique([name])
   @@index([airCampUserId])
 }
 
