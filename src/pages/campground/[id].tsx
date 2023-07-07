@@ -3,7 +3,7 @@ import type { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import React, { ReactNode, useEffect, useState } from "react";
+import React, { type ReactNode, useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import { BsLightningChargeFill, BsStarFill, BsStars } from "react-icons/bs";
 import { FaCampground } from "react-icons/fa";
