@@ -36,4 +36,5 @@ jobs:
           DISCORD_CLIENT_SECRET: ${{ secrets.DISCORD_CLIENT_SECRET }}
           GH_CLIENT_ID: ${{ secrets.GH_CLIENT_ID }}
           GH_CLIENT_SECRET: ${{ secrets.GH_CLIENT_SECRET}}
+          NEXT_PUBLIC_GEOCODER: ${{ secrets.NEXT_PUBLIC_GEOCODER}}
         run: npm run lint
