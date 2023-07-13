@@ -3,7 +3,7 @@ import type { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import React, { type ReactNode, useEffect, useState } from "react";
+import React, { useEffect, useState, type ReactNode } from "react";
 import { Container } from "react-bootstrap";
 import { BsLightningChargeFill, BsStarFill, BsStars } from "react-icons/bs";
 import { FaCampground } from "react-icons/fa";
@@ -27,8 +27,6 @@ const GoogleMapView = (props: { lat: number; lng: number }) => {
     }
   }, [isLoaded]);
 
-  console.log(coordinates);
-
   return (
     <div>
       {mapLoaded && (
@@ -42,6 +40,7 @@ const GoogleMapView = (props: { lat: number; lng: number }) => {
           onLoad={(map) => {
             const bounds = new window.google.maps.LatLngBounds();
             map.fitBounds(bounds);
+            map.panTo(coordinates);
           }}
           onUnmount={() => console.log("Unmounting Google Map...")}
         >
@@ -63,7 +62,7 @@ const RowListElement: React.FC<{ children: ReactNode }> = ({ children }) => {
 };
 
 const Campground: NextPage<{ id: string }> = ({ id }) => {
-  const { data } = api.campgrounds.getById.useQuery({
+  const { data } = api.campgrounds.getByPostId.useQuery({
     id,
   });
 
@@ -88,11 +87,20 @@ const Campground: NextPage<{ id: string }> = ({ id }) => {
           <div className="my-4 w-full overflow-hidden rounded-lg text-white">
             <Image src={imageUrl} alt="Image" width={1500} height={1500} />
           </div>
-          <div className="divide-y">
-            <div>
-              <h4 className="pb-2">
+          <div className="space-y-4 divide-y">
+            <div className="flex flex-row items-center">
+              <h4>
                 Grounds hosted by {data.owner ? data.owner.firstName : ""}
               </h4>
+              <Image
+                src={data.owner ? (data.owner.avatar as string) : ""}
+                alt={`${
+                  data.owner ? data.owner.firstName : "Unknown"
+                }'s profile picture`}
+                width={64}
+                height={64}
+                className="ml-2 rounded-full border-4"
+              />
             </div>
             <div>
               <ul className="list-group flex flex-col space-y-6 py-4">
@@ -137,7 +145,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   if (typeof id !== "string") throw new Error("No ID!");
 
-  await ssg.campgrounds.getById.prefetch({ id });
+  await ssg.campgrounds.getByPostId.prefetch({ id });
 
   return {
     props: {
