@@ -37,8 +37,8 @@ const InfoModal: React.FC<InfoModalProps> = ({ isOpen, closeModal }) => {
       <h2>Note</h2>
       <p>
         Currently migrating the legacy app, the main parts have moved over but
-        there are some additional features like commenting, chat rooms, etc.
-        which are missing. To view the legacy version see:&nbsp;
+        there are some additional features like posting, reviews, chat rooms,
+        etc. which are not included. To view the legacy version see:&nbsp;
         <Link href="https://github.com/stevenxchung/AirCamp-App/releases/tag/v0.0.1">
           legacy-ejs-nodejs-app
         </Link>
