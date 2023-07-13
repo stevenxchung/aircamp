@@ -103,7 +103,7 @@ const CustomNavbar = () => {
                 <>
                   <CustomLink
                     label={Page.Profile}
-                    path={`/profile/${userId}}`}
+                    path={`/profile/${userId}`}
                     query={userQuery}
                   />
                   <CustomLink
