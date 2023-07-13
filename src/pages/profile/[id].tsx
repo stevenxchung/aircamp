@@ -32,8 +32,6 @@ const Profile: NextPage = () => {
 
   if (!data) return <div>404</div>;
 
-  console.log(data);
-
   return (
     <>
       <Head>
