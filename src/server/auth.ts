@@ -67,6 +67,10 @@ export const authOptions: NextAuthOptions = {
      * @see https://next-auth.js.org/providers/github
      */
   ],
+  session: {
+    // Seconds - How long until an idle session expires and is no longer valid.
+    maxAge: 7 * 24 * 60 * 60, // 7 days
+  },
 };
 
 /**

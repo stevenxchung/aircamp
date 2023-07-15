@@ -3,7 +3,7 @@ import { z } from "zod";
 import { createTRPCRouter, publicProcedure } from "~/server/api/trpc";
 
 export const campgroundsRouter = createTRPCRouter({
-  getById: publicProcedure
+  getByPostId: publicProcedure
     .input(z.object({ id: z.string() }))
     .query(async ({ ctx, input }) => {
       const campground = await ctx.prisma.airCampCampground.findUnique({
@@ -16,6 +16,18 @@ export const campgroundsRouter = createTRPCRouter({
       if (!campground) throw new TRPCError({ code: "NOT_FOUND" });
 
       return campground;
+    }),
+
+  getByUserId: publicProcedure
+    .input(z.object({ id: z.string() }))
+    .query(async ({ ctx, input }) => {
+      const campgrounds = await ctx.prisma.airCampCampground.findMany({
+        where: { airCampUserId: input.id },
+      });
+
+      if (!campgrounds) throw new TRPCError({ code: "NOT_FOUND" });
+
+      return campgrounds;
     }),
 
   getAll: publicProcedure.query(({ ctx }) => {
