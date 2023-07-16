@@ -16,16 +16,6 @@ datasource db {
   relationMode = "prisma"
 }
 
-// Sharing DB with the t3-twitter-lite app (https://github.com/stevenxchung/t3-twitter-lite)
-model TwitterLitePost {
-  id        String   @id @default(cuid())
-  createdAt DateTime @default(now())
-  content   String   @db.VarChar(255)
-  authorId  String
-
-  @@index([authorId])
-}
-
 // Necessary for Next auth
 model Account {
   id                       String  @id @default(cuid())
@@ -128,3 +118,16 @@ model AirCampComment {
   @@index([campgroundId])
   @@index([airCampUserId])
 }
+
+// ************************* SHARED DB *************************
+// Uncomment below when adding new tables/fields to maintain 
+// consistency and avoid dropping existing tables
+
+// model TwitterLitePost {
+//   id        String   @id @default(cuid())
+//   createdAt DateTime @default(now())
+//   content   String   @db.VarChar(255)
+//   authorId  String
+
+//   @@index([authorId])
+// }
