@@ -250,59 +250,62 @@ const CreateCampground: NextPage = () => {
         <title>Create Campground</title>
       </Head>
       <main>
-        {creating && <LoadingPage />}
-        <div className="mx-auto my-4 mt-8 max-w-xl rounded-md bg-gray-100 p-6 shadow-md">
-          <h2 className="mb-4 text-center text-2xl font-semibold">
-            Create Campground
-          </h2>
-          <form onSubmit={handleSubmit}>
-            <FormInputElement
-              label="Name"
-              formId="name"
-              value={formData.name}
-              handleChange={handleChange}
-            />
-            <FormInputElement
-              label="Image Source"
-              formId="imageSource"
-              value={formData.imageSource}
-              handleChange={handleChange}
-              error={imageError}
-              placeholder="https://images.unsplash.com/..."
-            />
-            <FormInputElement
-              label="Price (USD)"
-              formId="price"
-              value={formData.price}
-              handleChange={handleChange}
-            />
-            <FormInputElement
-              label="Summary"
-              formId="summary"
-              value={formData.summary}
-              handleChange={handleChange}
-              rows={2}
-              placeholder="The Washington Monument is an obelisk on the National Mall..."
-            />
-            <FormInputElement
-              label="Description"
-              formId="description"
-              value={formData.description}
-              handleChange={handleChange}
-              rows={4}
-              placeholder="The tallest monumental column in the world if all are measured above their pedestrian entrances. It was the world's tallest structure between 1884 and 1889, after which it was overtaken by the Eiffel Tower, in Paris..."
-            />
-            <MapComponent onLocationSelect={handleLocationSelect} />
-            <div className="px-4">
-              <button
-                type="submit"
-                className="w-full rounded-md border bg-blue-500 p-2 text-xl text-white hover:bg-blue-600"
-              >
-                Submit
-              </button>
-            </div>
-          </form>
-        </div>
+        {creating ? (
+          <LoadingPage />
+        ) : (
+          <div className="mx-auto my-4 mt-8 max-w-xl rounded-md bg-gray-100 p-6 shadow-md">
+            <h2 className="mb-4 text-center text-2xl font-semibold">
+              Create Campground
+            </h2>
+            <form onSubmit={handleSubmit}>
+              <FormInputElement
+                label="Name"
+                formId="name"
+                value={formData.name}
+                handleChange={handleChange}
+              />
+              <FormInputElement
+                label="Image Source"
+                formId="imageSource"
+                value={formData.imageSource}
+                handleChange={handleChange}
+                error={imageError}
+                placeholder="https://images.unsplash.com/..."
+              />
+              <FormInputElement
+                label="Price (USD)"
+                formId="price"
+                value={formData.price}
+                handleChange={handleChange}
+              />
+              <FormInputElement
+                label="Summary"
+                formId="summary"
+                value={formData.summary}
+                handleChange={handleChange}
+                rows={2}
+                placeholder="The Washington Monument is an obelisk on the National Mall..."
+              />
+              <FormInputElement
+                label="Description"
+                formId="description"
+                value={formData.description}
+                handleChange={handleChange}
+                rows={4}
+                placeholder="The tallest monumental column in the world if all are measured above their pedestrian entrances. It was the world's tallest structure between 1884 and 1889, after which it was overtaken by the Eiffel Tower, in Paris..."
+              />
+              <MapComponent onLocationSelect={handleLocationSelect} />
+              <div className="px-4">
+                <button
+                  type="submit"
+                  className="w-full rounded-md border bg-blue-500 p-2 text-xl text-white hover:bg-blue-600"
+                >
+                  Submit
+                </button>
+              </div>
+            </form>
+          </div>
+        )}
       </main>
     </>
   );
