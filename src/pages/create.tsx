@@ -85,7 +85,7 @@ const MapComponent = (props: {
   const [lat, setLat] = useState(38.8895);
   const [lng, setLng] = useState(-77.0353);
   const mapCenter = useMemo(() => ({ lat, lng }), [lat, lng]);
-  const mapOptions = useMemo<google.maps.MapOptions>(
+  const mapOptions = useMemo(
     () => ({
       disableDefaultUI: false,
       clickableIcons: true,
@@ -110,7 +110,6 @@ const MapComponent = (props: {
       <GoogleMap
         options={mapOptions}
         center={mapCenter}
-        mapTypeId={google.maps.MapTypeId.ROADMAP}
         mapContainerStyle={{ height: "400px" }}
         zoom={14}
       >
