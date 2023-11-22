@@ -6,6 +6,14 @@
 body {
   /* override bootstrap default font */
   font-family: "DM Sans", sans-serif !important;
-  color: white;
-  background-color: black;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
 }
