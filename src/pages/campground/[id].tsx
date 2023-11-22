@@ -1,55 +1,30 @@
-import { GoogleMap, Marker, useJsApiLoader } from "@react-google-maps/api";
+import { GoogleMap, MarkerF } from "@react-google-maps/api";
 import type { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import React, { useEffect, useState, type ReactNode } from "react";
+import React, { type ReactNode } from "react";
 import { Container } from "react-bootstrap";
 import { BsLightningChargeFill, BsStarFill, BsStars } from "react-icons/bs";
 import { FaCampground } from "react-icons/fa";
 import CustomNavbar from "~/components/navbar";
-import { env } from "~/env.mjs";
 import { generateSSGHelper } from "~/server/helpers/ssgHelper";
 import { api } from "~/utils/api";
 
-const GoogleMapView = (props: { lat: number; lng: number }) => {
-  const coordinates = { lat: props.lat, lng: props.lng };
-  const [mapLoaded, setMapLoaded] = useState(false);
-
-  const { isLoaded } = useJsApiLoader({
-    id: "google-map-script",
-    googleMapsApiKey: env.NEXT_PUBLIC_GEOCODER,
-  });
-
-  useEffect(() => {
-    if (isLoaded) {
-      setMapLoaded(true);
-    }
-  }, [isLoaded]);
-
-  return (
-    <div>
-      {mapLoaded && (
-        <GoogleMap
-          mapContainerStyle={{
-            width: "100%",
-            height: "500px",
-          }}
-          center={coordinates}
-          zoom={10}
-          onLoad={(map) => {
-            const bounds = new window.google.maps.LatLngBounds();
-            map.fitBounds(bounds);
-            map.panTo(coordinates);
-          }}
-          onUnmount={() => console.log("Unmounting Google Map...")}
-        >
-          <Marker position={coordinates} />
-        </GoogleMap>
-      )}
-    </div>
-  );
-};
+const GoogleMapView = (props: { lat: number; lng: number }) => (
+  <div>
+    <GoogleMap
+      mapContainerStyle={{
+        width: "100%",
+        height: "500px",
+      }}
+      center={{ lat: props.lat, lng: props.lng }}
+      zoom={10}
+    >
+      <MarkerF position={{ lat: props.lat, lng: props.lng }} />
+    </GoogleMap>
+  </div>
+);
 
 const RowTextElement = (props: { text: string }) => (
   <div className="pt-3">
@@ -68,7 +43,9 @@ const Campground: NextPage<{ id: string }> = ({ id }) => {
 
   const router = useRouter();
   const { imageIndex } = router.query;
-  const imageUrl = `/campgrounds/${imageIndex as string}.jpg`;
+  const imageUrl = data?.imageSource
+    ? data?.imageSource
+    : `/campgrounds/${imageIndex as string}.jpg`;
 
   if (!data) return <div>404</div>;
 
