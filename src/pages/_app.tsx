@@ -15,7 +15,13 @@ const MyApp: AppType<{ session: Session | null }> = ({
 }) => {
   useLoadScript({
     googleMapsApiKey: env.NEXT_PUBLIC_GEOCODER,
-    libraries: LIBRARIES,
+    libraries: LIBRARIES as (
+      | "drawing"
+      | "geometry"
+      | "localContext"
+      | "places"
+      | "visualization"
+    )[],
   });
 
   return (

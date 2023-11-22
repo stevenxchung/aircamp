@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useMemo, useState } from "react";
 import toast from "react-hot-toast";
+import type { GeocodeResult } from "use-places-autocomplete";
 import usePlacesAutocomplete, {
   getGeocode,
   getLatLng,
@@ -99,7 +100,7 @@ const MapComponent = (props: {
       <SearchBarComponent
         onAddressSelect={(address) => {
           void getGeocode({ address: address }).then((results) => {
-            const { lat, lng } = getLatLng(results[0]);
+            const { lat, lng } = getLatLng(results[0] as GeocodeResult);
             console.log(lat, lng);
             setLat(lat);
             setLng(lng);
