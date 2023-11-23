@@ -36,14 +36,15 @@ const InfoModal: React.FC<InfoModalProps> = ({ isOpen, closeModal }) => {
     >
       <h2>Note</h2>
       <p>
-        Currently migrating the legacy app, the main parts have moved over but
-        there are some additional features like posting, reviews, chat rooms,
-        etc. which are not included. To view the legacy version see:&nbsp;
+        The legacy app has migrated over to Next.js and Vercel. Although the
+        main parts have moved over, additional features like leaving reviews,
+        built-in chat rooms, etc. were not included. To view the legacy version
+        see:&nbsp;
         <Link href="https://github.com/stevenxchung/aircamp/releases/tag/v0.0.1">
           legacy-ejs-nodejs-app
         </Link>
         &nbsp;and the corresponding README for more information on how to run
-        the app locally.
+        the legacy app locally.
       </p>
       <div
         style={{

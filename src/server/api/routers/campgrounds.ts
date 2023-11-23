@@ -1,6 +1,10 @@
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
-import { createTRPCRouter, publicProcedure } from "~/server/api/trpc";
+import {
+  createTRPCRouter,
+  protectedProcedure,
+  publicProcedure,
+} from "~/server/api/trpc";
 
 export const campgroundsRouter = createTRPCRouter({
   getByPostId: publicProcedure
@@ -33,4 +37,37 @@ export const campgroundsRouter = createTRPCRouter({
   getAll: publicProcedure.query(({ ctx }) => {
     return ctx.prisma.airCampCampground.findMany();
   }),
+
+  create: protectedProcedure
+    .input(
+      z.object({
+        summary: z.string(),
+        description: z.string(),
+        imageSource: z.string(),
+        name: z.string(),
+        price: z.string(),
+        location: z.string(),
+        lat: z.number(),
+        lng: z.number(),
+      })
+    )
+    .mutation(async ({ ctx, input }) => {
+      const id = ctx.session.user.id;
+
+      const post = await ctx.prisma.airCampCampground.create({
+        data: {
+          airCampUserId: id,
+          summary: input.summary,
+          description: input.description,
+          imageSource: input.imageSource,
+          name: input.name,
+          price: input.price,
+          location: input.location,
+          lat: input.lat,
+          lng: input.lng,
+        },
+      });
+
+      return post;
+    }),
 });

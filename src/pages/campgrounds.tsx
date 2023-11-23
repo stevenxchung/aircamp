@@ -2,6 +2,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import CustomNavbar from "~/components/navbar";
@@ -43,8 +44,14 @@ const useTimeout = (delayInSeconds: number) => {
 };
 
 const Campgrounds: NextPage = () => {
+  const router = useRouter();
+
   const campgrounds = api.campgrounds.getAll.useQuery().data;
   const delayInSeconds = 0.5;
+
+  const navigateToCreatePage = () => {
+    void router.push("/create");
+  };
 
   return (
     <>
@@ -55,13 +62,23 @@ const Campgrounds: NextPage = () => {
       <main className="flex flex-col items-center">
         <Container className="my-10 px-4">
           <div className="h-96 rounded-lg bg-black bg-jumbotron bg-cover bg-center object-cover py-4 pl-8 text-white">
-            <h1 className="delay-250 animate-fade-in-medium">
+            <h1 className="delay-250 mt-2 animate-fade-in-medium">
               Experience nature
             </h1>
+
             {useTimeout(delayInSeconds) && (
               <h5 className="animate-fade-in-medium pt-2 delay-2000">
                 View our campgrounds from all over the world.
               </h5>
+            )}
+
+            {useTimeout(0.75) && (
+              <button
+                className="mt-12 animate-fade-in-medium rounded border-green-600 bg-green-400 px-4 py-2 font-semibold text-gray-800 shadow hover:bg-green-200"
+                onClick={navigateToCreatePage}
+              >
+                Add Campground
+              </button>
             )}
           </div>
         </Container>
@@ -80,7 +97,11 @@ const Campgrounds: NextPage = () => {
                     <Container key={i}>
                       <Image
                         key={i}
-                        src={`/campgrounds/0${i + 1}.jpg`}
+                        src={
+                          campground.imageSource
+                            ? campground.imageSource
+                            : `/campgrounds/0${i + 1}.jpg`
+                        }
                         alt={campground.name}
                         className="h-52 rounded-lg object-cover"
                         width={500}

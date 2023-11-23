@@ -2,8 +2,7 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
-  provider        = "prisma-client-js"
-  previewFeatures = ["jsonProtocol"]
+  provider = "prisma-client-js"
 }
 
 datasource db {
@@ -92,6 +91,7 @@ model AirCampCampground {
   owner         AirCampUser?     @relation(fields: [airCampUserId], references: [airCampUserId], onDelete: Cascade)
   summary       String           @db.VarChar(999)
   description   String           @db.VarChar(999)
+  imageSource   String?
   // Legacy fields
   name          String
   price         String
@@ -130,4 +130,11 @@ model AirCampComment {
 //   authorId  String
 
 //   @@index([authorId])
+// }
+
+// model PoemOfTheMonth {
+//   id        String   @id @default("001")
+//   content   String   @db.VarChar(999)
+//   createdAt DateTime @default(now())
+//   updatedAt DateTime @updatedAt
 // }

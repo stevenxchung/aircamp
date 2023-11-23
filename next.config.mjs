@@ -26,7 +26,12 @@ const config = {
   },
   swcMinify: true,
   images: {
-    domains: ["cdn.discordapp.com", "avatars.githubusercontent.com"],
+    domains: [
+      "cdn.discordapp.com",
+      "avatars.githubusercontent.com",
+      "images.unsplash.com",
+      "plus.unsplash.com",
+    ],
   },
 };
 export default config;
