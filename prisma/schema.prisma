@@ -2,17 +2,14 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
 }
 
+// https://www.prisma.io/docs/orm/overview/databases/turso
 datasource db {
-  provider     = "mysql"
-  // NOTE: When using mysql or sqlserver, uncomment the @db.Text annotations in model Account below
-  // Further reading:
-  // https://next-auth.js.org/adapters/prisma#create-the-prisma-schema
-  // https://www.prisma.io/docs/reference/api-reference/prisma-schema-reference#string
-  url          = env("DATABASE_URL")
-  relationMode = "prisma"
+  provider = "sqlite"
+  url      = "file:./dev.db"
 }
 
 // Necessary for Next auth
@@ -89,8 +86,8 @@ model AirCampCampground {
   airCampUserId String
   // Optional for now
   owner         AirCampUser?     @relation(fields: [airCampUserId], references: [airCampUserId], onDelete: Cascade)
-  summary       String           @db.VarChar(999)
-  description   String           @db.VarChar(999)
+  summary       String
+  description   String
   imageSource   String?
   // Legacy fields
   name          String
@@ -134,7 +131,7 @@ model AirCampComment {
 
 // model PoemOfTheMonth {
 //   id        String   @id @default("001")
-//   content   String   @db.VarChar(999)
+//   content   String   
 //   createdAt DateTime @default(now())
 //   updatedAt DateTime @updatedAt
 // }

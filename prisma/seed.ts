@@ -1,9 +1,10 @@
 import { prisma } from "../src/server/db";
 
+// Note: users must be created first (e.g., through AirCamp) to use process.env.USER_ID
 const main = async () => {
   const mockUsers = [
     {
-      airCampUserId: "001",
+      airCampUserId: process.env.USER_ID,
       username: "DeepLearner",
       firstName: "Steven",
       lastName: "C",
@@ -13,7 +14,7 @@ const main = async () => {
 
   const mockCampgrounds = [
     {
-      airCampUserId: "001",
+      airCampUserId: process.env.USER_ID,
       name: "Cloud's Rest",
       price: "666",
       summary:
@@ -25,7 +26,7 @@ const main = async () => {
       lng: -119.4894,
     },
     {
-      airCampUserId: "001",
+      airCampUserId: process.env.USER_ID,
       name: "Yellow Mountain",
       price: "777",
       summary:
@@ -37,7 +38,7 @@ const main = async () => {
       lng: 118.3387,
     },
     {
-      airCampUserId: "001",
+      airCampUserId: process.env.USER_ID,
       name: "Shangri-La",
       price: "888",
       summary:
@@ -49,7 +50,7 @@ const main = async () => {
       lng: 99.7432,
     },
     {
-      airCampUserId: "001",
+      airCampUserId: process.env.USER_ID,
       name: "Nusa Penida",
       price: "999",
       summary:
@@ -62,15 +63,21 @@ const main = async () => {
     },
   ];
 
-  await prisma.airCampUser.createMany({
-    data: mockUsers,
-    skipDuplicates: true,
-  });
+  for (const user of mockUsers) {
+    await prisma.airCampUser.upsert({
+      where: { username: user.username },
+      create: user,
+      update: user,
+    });
+  }
 
-  await prisma.airCampCampground.createMany({
-    data: mockCampgrounds,
-    skipDuplicates: true,
-  });
+  for (const campground of mockCampgrounds) {
+    await prisma.airCampCampground.upsert({
+      where: { name: campground.name },
+      create: campground,
+      update: campground,
+    });
+  }
 };
 
 main()
