@@ -61,14 +61,13 @@ const Profile: NextPage = () => {
                     <Link
                       href={{
                         pathname: `/campground/${campground.id}`,
-                        query: { imageIndex: `0${i + 1}` },
                       }}
                       className="text-indigo-600 no-underline"
                     >
                       <div key={i}>
                         <Image
                           key={i}
-                          src={`/campgrounds/0${i + 1}.jpg`}
+                          src={campground.imageSource}
                           alt={campground.name}
                           className="h-52 rounded-lg object-cover"
                           width={500}

@@ -10,7 +10,7 @@ export default {
         "fade-in-fast": "fade-in 1s ease-in-out",
       },
       backgroundImage: {
-        jumbotron: "url('/campgrounds/jumbotron.jpg')",
+        jumbotron: "url('/jumbotron.jpg')",
       },
       transitionDelay: {
         "2000": "2000ms",
@@ -23,6 +23,10 @@ export default {
       "fade-in": {
         "0%": { opacity: "0" },
         "100%": { opacity: "1" },
+      },
+      pulse: {
+        "0%, 100%": { opacity: "1" },
+        "50%": { opacity: "0.5" },
       },
     },
   },

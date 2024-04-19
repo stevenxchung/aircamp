@@ -2,7 +2,6 @@ import { GoogleMap, MarkerF } from "@react-google-maps/api";
 import type { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
-import { useRouter } from "next/router";
 import React, { type ReactNode } from "react";
 import { Container } from "react-bootstrap";
 import { BsLightningChargeFill, BsStarFill, BsStars } from "react-icons/bs";
@@ -41,11 +40,7 @@ const Campground: NextPage<{ id: string }> = ({ id }) => {
     id,
   });
 
-  const router = useRouter();
-  const { imageIndex } = router.query;
-  const imageUrl = data?.imageSource
-    ? data?.imageSource
-    : `/campgrounds/${imageIndex as string}.jpg`;
+  const imageUrl = data?.imageSource;
 
   if (!data) return <div>404</div>;
 

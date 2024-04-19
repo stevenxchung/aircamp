@@ -19,6 +19,8 @@ const main = async () => {
         "Mountain camp in Yosemite National Park east northeast of Yosemite Village, California. Although there are many peaks in the park having far greater elevation, Clouds Rest's proximity to the valley gives it a very high degree of visual prominence.",
       description:
         "The summit can be reached by a 7.2-mile (11.6 km) trail hike from Tioga Pass Road or a 13-mile (21 km) trail hike from Happy Isles by way of Little Yosemite Valley. There are also several technical routes available. Clouds Rest is an arête; a thin, almost knife-like, ridge of rock formed when glaciers eroded away solid rock to form Tenaya Canyon and Little Yosemite Valley. The northwest face, mostly solid granite, rises 5,000 feet (1,520 m) above Tenaya Creek.",
+      imageSource:
+        "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       name: "Cloud's Rest",
       price: "666",
       location: "Yosemite, California",
@@ -31,6 +33,8 @@ const main = async () => {
         "Campsite near the mountain range in southern Anhui province in eastern China. Vegetation on the range is thickest below 1,100 meters (3,600 ft), with trees growing up to the treeline at 1,800 meters (5,900 ft).",
       description:
         "The area is well known for its scenery, sunsets, peculiarly-shaped granite peaks, Huangshan pine trees, hot springs, winter snow and views of the clouds from above. Huangshan is a frequent subject of traditional Chinese paintings and literature, as well as modern photography. It is a UNESCO World Heritage Site and one of China's major tourist destinations.",
+      imageSource:
+        "https://images.unsplash.com/photo-1709327013825-0350cd1dd879?q=80&w=1337&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       name: "Yellow Mountain",
       price: "777",
       location: "Huangshan City, Anhui",
@@ -43,6 +47,8 @@ const main = async () => {
         "Mountain camp in mystical, harmonious valley, gently guided from a lamasery, enclosed in the western end of the Kunlun Mountains. Shangri-La has become synonymous with any earthly paradise, particularly a mythical Himalayan utopia - an enduringly happy land, isolated from the world. In the novel, the people who live in Shangri-La are almost immortal, living hundreds of years beyond the normal lifespan and only very slowly aging in appearance.",
       description:
         "The highest mountain of the Kunlun Mountains is the Kunlun Goddess Peak (7,167 m) in the Keriya area of the western Kunlun Mountains. Some authorities claim that the Kunlun extends further northwest-wards as far as Kongur Tagh (7,649 m) and the famous Muztagh Ata (7,546 m). But these mountains are physically much more closely linked to the Pamir group (ancient Mount Imeon). The Arka Tagh (Arch Mountain) is in the center of the Kunlun Mountains; its highest points are Ulugh Muztagh (6,973 m) and Bukadaban Feng (6,860 m). In the eastern Kunlun Mountains the highest peaks are Yuzhu Peak (6,224 m) and Amne Machin [also Dradullungshong] (6,282 m); the latter is the major eastern peak of the Kunlun Mountains and is thus considered as the eastern edge of the Kunlun Mountains.",
+      imageSource:
+        "https://images.unsplash.com/photo-1698104054416-ee16bc1b38de?q=80&w=1210&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       name: "Shangri-La",
       price: "888",
       location: "Yunnan, China",
@@ -55,6 +61,8 @@ const main = async () => {
         "Beach camp on an island located near the southeastern Indonesian island of Bali and a district of Klungkung Regency that includes the neighboring small island of Nusa Lembongan and twelve even smaller islands. The Badung Strait separates the island and Bali.",
       description:
         "The interior of Nusa Penida is hilly with a maximum altitude of 524 metres. It is drier than the nearby island of Bali. It is one of the major tourist attractions among the three Nusa islands. There are thirteen small islands nearby - Nusa Lembongan, Nusa Ceningan and eleven even smaller - which are included within the district (Kecamatan).",
+      imageSource:
+        "https://images.unsplash.com/photo-1577717903315-1691ae25ab3f?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       name: "Nusa Penida",
       price: "999",
       location: "Bali, Indonesia",
