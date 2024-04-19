@@ -53,6 +53,12 @@ const Campgrounds: NextPage = () => {
     void router.push("/create");
   };
 
+  const [isLoading, setIsLoading] = useState(true);
+
+  const handleImageLoad = () => {
+    setIsLoading(false);
+  };
+
   return (
     <>
       <Head>
@@ -82,57 +88,57 @@ const Campgrounds: NextPage = () => {
             )}
           </div>
         </Container>
-        {useTimeout(delayInSeconds) && (
-          <Container className="flex animate-fade-in-medium flex-wrap">
-            {campgrounds ? (
-              campgrounds.map((campground, i) => (
-                <div key={i} className="w-full sm:w-1/2 lg:w-1/4">
-                  <Link
-                    href={{
-                      pathname: `/campground/${campground.id}`,
-                      query: { imageIndex: `0${i + 1}` },
-                    }}
-                    className="text-indigo-600 no-underline"
-                  >
-                    <Container key={i}>
-                      <Image
-                        key={i}
-                        src={
-                          campground.imageSource
-                            ? campground.imageSource
-                            : `/campgrounds/0${i + 1}.jpg`
-                        }
-                        alt={campground.name}
-                        className="h-52 rounded-lg object-cover"
-                        width={500}
-                        height={500}
-                      />
-                      <p className="mb-0 mt-2.5 font-bold ">
-                        {campground.location}
-                      </p>
-                      <div className="text-slate-500">
-                        <p className="mb-0">Stay at {campground.name}</p>
-                        <p className="mb-1.5">{getRandomDateRange()}</p>
-                      </div>
-                      <p>
-                        <strong>
-                          $
-                          {Math.round(
-                            parseInt(campground.price) *
-                              getRandomNumber(0.5, 1.5)
-                          )}
-                        </strong>
-                        /night
-                      </p>
-                    </Container>
-                  </Link>
-                </div>
-              ))
-            ) : (
-              <p className="text-4xl">Campgrounds</p>
-            )}
-          </Container>
-        )}
+        <Container className="flex flex-wrap">
+          {campgrounds ? (
+            campgrounds.map((campground, i) => (
+              <div key={i} className="w-full sm:w-1/2 lg:w-1/4">
+                <Link
+                  href={{
+                    pathname: `/campground/${campground.id}`,
+                    query: { imageIndex: `0${i + 1}` },
+                  }}
+                  className="text-indigo-600 no-underline"
+                >
+                  <Container key={i}>
+                    <Image
+                      key={i}
+                      src={
+                        campground.imageSource
+                          ? campground.imageSource
+                          : `/campgrounds/0${i + 1}.jpg`
+                      }
+                      alt={campground.name}
+                      width={500}
+                      height={500}
+                      className={`h-52 rounded-lg bg-gray-200 object-cover ${
+                        isLoading ? "animate-pulse" : ""
+                      }`}
+                      onLoad={handleImageLoad}
+                    />
+                    <p className="mb-0 mt-2.5 font-bold ">
+                      {campground.location}
+                    </p>
+                    <div className="text-slate-500">
+                      <p className="mb-0">Stay at {campground.name}</p>
+                      <p className="mb-1.5">{getRandomDateRange()}</p>
+                    </div>
+                    <p>
+                      <strong>
+                        $
+                        {Math.round(
+                          parseInt(campground.price) * getRandomNumber(0.5, 1.5)
+                        )}
+                      </strong>
+                      /night
+                    </p>
+                  </Container>
+                </Link>
+              </div>
+            ))
+          ) : (
+            <p className="text-4xl">Campgrounds</p>
+          )}
+        </Container>
       </main>
     </>
   );
