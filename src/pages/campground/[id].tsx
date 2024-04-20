@@ -40,7 +40,7 @@ const Campground: NextPage<{ id: string }> = ({ id }) => {
     id,
   });
 
-  const imageUrl = data?.imageSource;
+  const imageUrl = data?.imageSource || "";
 
   if (!data) return <div>404</div>;
 

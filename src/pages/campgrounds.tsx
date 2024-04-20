@@ -55,10 +55,6 @@ const Campgrounds: NextPage = () => {
 
   const [isLoading, setIsLoading] = useState(true);
 
-  const handleImageLoad = () => {
-    setIsLoading(false);
-  };
-
   return (
     <>
       <Head>
@@ -113,7 +109,7 @@ const Campgrounds: NextPage = () => {
                       className={`h-52 rounded-lg bg-gray-200 object-cover ${
                         isLoading ? "animate-pulse" : ""
                       }`}
-                      onLoad={handleImageLoad}
+                      onLoad={(event) => setIsLoading(false)}
                     />
                     <p className="mb-0 mt-2.5 font-bold ">
                       {campground.location}
