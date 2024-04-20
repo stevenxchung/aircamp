@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
+import { LoadingSpinner } from "~/components/loading";
 import CustomNavbar from "~/components/navbar";
 import { api } from "~/utils/api";
 
@@ -132,7 +133,13 @@ const Campgrounds: NextPage = () => {
               </div>
             ))
           ) : (
-            <p className="text-4xl">Campgrounds</p>
+            <>
+              <p className="text-4xl">Campgrounds</p>
+              <span className="mt-64"></span>
+              <div className="flex h-full w-full justify-center">
+                <LoadingSpinner size={56} />
+              </div>
+            </>
           )}
         </Container>
       </main>
