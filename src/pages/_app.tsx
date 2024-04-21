@@ -3,6 +3,7 @@ import { type Session } from "next-auth";
 import { SessionProvider } from "next-auth/react";
 import { type AppType } from "next/app";
 import { Toaster } from "react-hot-toast";
+import { LoadingPage } from "~/components/loading";
 import { env } from "~/env.mjs";
 import "~/styles/globals.css";
 import { api } from "~/utils/api";
@@ -13,7 +14,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
   Component,
   pageProps: { session, ...pageProps },
 }) => {
-  useLoadScript({
+  const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: env.NEXT_PUBLIC_GEOCODER,
     libraries: LIBRARIES as (
       | "drawing"
@@ -23,6 +24,9 @@ const MyApp: AppType<{ session: Session | null }> = ({
       | "visualization"
     )[],
   });
+
+  if (loadError) return <div>Error loading Google Maps API</div>;
+  if (!isLoaded) return <LoadingPage />;
 
   return (
     <SessionProvider session={session}>

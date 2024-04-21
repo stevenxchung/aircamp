@@ -88,7 +88,7 @@ model AirCampCampground {
   owner         AirCampUser?     @relation(fields: [airCampUserId], references: [airCampUserId], onDelete: Cascade)
   summary       String
   description   String
-  imageSource   String?
+  imageSource   String
   // Legacy fields
   name          String
   price         String
